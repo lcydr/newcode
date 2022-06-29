@@ -15,16 +15,6 @@
       <button v-on:click="addFn">+1</button>
       <button v-on:click="addCountFn(5)">+5</button>
       <button @click="subFn">减少1</button>
-      <div>
-        <a @click="one" href="http://www.baidu.com">阻止百度</a>
-        <hr />
-        <a @click="two(10, $event)" href="http://www.baidu.com">阻止去百度</a>
-      </div>
-    </div>
-    <div>
-      <input type="text" @keydown.enter="enterFn" />
-      <hr />
-      <input type="text" @keydown.esc="escFn" />
     </div>
   </div>
 </template>
@@ -55,19 +45,6 @@ export default {
     },
     subFn() {
       this.count--;
-    },
-    one(e) {
-      e.preventDefault();
-    },
-    two(nam, e) {
-      console.log(nam);
-      e.preventDefault();
-    },
-    enterFn() {
-      console.log('enter');
-    },
-    escFn() {
-      console.log('esc');
     },
   },
 };
