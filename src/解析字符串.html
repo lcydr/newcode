@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // http://www.baidu.com?name=zhangsan&age=18&sex=nan#
+        const str = (num) => {
+            const arr1 = num.indexOf('?')
+            const arr2 = num.indexOf('#')
+            pname = num.slice(arr1 + 1, arr2).split('&')
+            return pname.reduce((pna, pme) => {
+                const [key, value] = pme.split('=')
+                pna[key] = value
+                return pme
+            }, {})
+        }
+        str(num)
+    </script>
+</body>
+
+</html>

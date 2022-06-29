@@ -1,11 +1,15 @@
 <template>
-  <div></div>
+  <div>
+    <p>{{ str }}</p>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
-    return {};
+    return {
+      str: 'asdsadfsadfasfsafas',
+    };
   },
   methods: {},
 };
