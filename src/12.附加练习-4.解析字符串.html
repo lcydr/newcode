@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //  http://www.baidu.com?name=zhangsan&age=18&sex=nan#
+  let  url = "http://www.baidu.com?name=zhangsan&age=18&sex=nan"
+  // let str = url.split("?",2).slice(1).join()
+  // let arr= str.split("")
+  // console.log(arr)
+  //   arr.forEach(function(item) {
+  //     if(item === '='){
+  //       item = ':'
+        
+  //     }else if(item === '&'){
+  //       item.replace('&','')
+  //     }
+  //     console.log(item)
+  //   })
+  const process = (url)=>{
+  const index1 = url.indexOf('?'),
+        index2 = url.indexOf('#'),
+        params = url.slice(index1+1,index2 ).split('&')
+  return params.reduce((pre,curr)=>{
+    // [name,zhangsan]
+    // { name:zhangsan } 
+    const [key,value] = curr.split('=')
+    pre[key] = value
+    return pre
+  },{})
+}
+
+process(url)
+    
+
+  </script>
+</body>
+</html>
