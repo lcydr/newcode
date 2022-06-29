@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let arr = [{ a: 100 }, { a: 20 }, { a: -10 }]
+
+
+        // const sum = arr.reduce((pre, curr) => {
+        //     return pre + curr.a
+        // }, 0)
+        // console.log(sum) // 110
+
+        // 实现reduce 查找字符串中重复的内容 并计数
+
+        const str = 'aicebobbiffarucecice'
+        const arr = str.split('')
+
+        let count = arr.reduce(function (Start, ent) {
+            if (ent in Start) {
+                Start[ent]++
+            } else {
+                Start[ent] = 1
+            }
+            return Start
+        }, {})
+        console.log(count);
+
+
+
+    </script>
+</body>
+
+</html>

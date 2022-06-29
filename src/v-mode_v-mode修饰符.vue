@@ -15,25 +15,10 @@
       <button v-on:click="addFn">+1</button>
       <button v-on:click="addCountFn(5)">+5</button>
       <button @click="subFn">减少1</button>
-      <div>
-        <a @click="one" href="http://www.baidu.com">阻止百度</a>
-        <hr />
-        <a @click="two(10, $event)" href="http://www.baidu.com">阻止去百度</a>
-      </div>
     </div>
-    <div>
-      <input type="text" @keydown.enter="enterFn" />
-      <hr />
-      <input type="text" @keydown.esc="escFn" />
-    </div>
-    <div>
-      <!-- 1. 变量准备-静态页面铺设 -->
-      <h1>{{ message }}</h1>
-      <!-- 2. 绑定点击事件 -->
-      <button @click="btn">翻转</button>
-    </div>
+    <!-- ================================ -->
     <br />
-    <!-- --------------------------- -->
+    <br />
     <div>
       <span>用户名:</span>
       <input type="text" v-model="username" />
@@ -44,7 +29,7 @@
     </div>
     <div>
       <span>来自于: </span>
-
+      <!-- 下拉菜单要绑定在select上 -->
       <select v-model="from">
         <option value="北京市">北京</option>
         <option value="南京市">南京</option>
@@ -52,6 +37,11 @@
       </select>
     </div>
     <div>
+      <!-- (重要)
+      遇到复选框, v-model的变量值
+      非数组 - 关联的是复选框的checked属性
+      数组   - 关联的是复选框的value属性
+       -->
       <span>爱好: </span>
       <input type="checkbox" v-model="hobby" value="抽烟" />抽烟
       <input type="checkbox" v-model="hobby" value="喝酒" />喝酒
@@ -66,10 +56,9 @@
       <span>自我介绍</span>
       <textarea v-model="intro"></textarea>
     </div>
-
-    <!-- ==================================== -->
     <br />
     <br />
+    <!-- ========================================== -->
     <div>
       <span>年龄:</span>
       <input type="text" v-model.number="a" />
@@ -100,7 +89,6 @@ export default {
       urlImg: urlImg,
       href: 'http://www.baidu.com',
       count: 0,
-      message: 'hello!!',
       username: '',
       pass: '',
       from: '',
@@ -122,22 +110,6 @@ export default {
     },
     subFn() {
       this.count--;
-    },
-    one(e) {
-      e.preventDefault();
-    },
-    two(nam, e) {
-      console.log(nam);
-      e.preventDefault();
-    },
-    enterFn() {
-      console.log('enter');
-    },
-    escFn() {
-      console.log('esc');
-    },
-    btn() {
-      this.message = this.message.split('').reverse().join('');
     },
   },
 };

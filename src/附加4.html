@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 第四题  解析字符串
+
+
+        const str = 'http://www.baidu.com?name=zhangsan&age=18&sex=nan#'
+
+        let index = str.indexOf('?')
+        let index1 = str.indexOf('#')
+
+        let newStr = str.slice(index + 1, index1)
+        console.log(newStr);
+
+        newStr = newStr.split('&')
+        console.log(newStr);
+        let obj = {}
+
+        for (var i = 0; i < newStr.length; i++) {
+
+            let key = newStr[i].split('=')[0]
+            let value = newStr[i].split('=')[1]
+
+            console.log(key);
+            console.log(value);
+
+            obj[key] = value
+        }
+
+        console.log(obj);
+    </script>
+</body>
+
+</html>
